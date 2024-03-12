@@ -1,4 +1,4 @@
-package com.stockTracker;
+package com.stockTracker.controller;
 
 
 import com.stockTracker.service.CustomerService;
@@ -20,17 +20,16 @@ public class CustomerController {
     @Autowired
     private OrderService orderService;
 
-    // @QueryMapping
+
     @SchemaMapping(typeName = "Query")
     public Flux<Customer> customers(){
         return this.service.allCustomers();
     }
 
     @SchemaMapping(typeName = "Customer")
-    public Flux<CustomerOrder> orders(Customer customer, @Argument Integer limit){
+    public Flux<CustomerOrder> orders(Customer customer){
         System.out.println("Orders method invoked for " + customer.getName());
-        return this.orderService.ordersByCustomerName(customer.getName())
-                .take(limit);
+        return this.orderService.ordersByCustomerName(customer.getName());
     }
 
 }

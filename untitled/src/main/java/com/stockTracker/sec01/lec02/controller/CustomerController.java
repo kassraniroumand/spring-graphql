@@ -1,4 +1,4 @@
-package com.stocktracker.springbootgraphql.sec01.lec02.controller;
+package com.stockTracker.sec01.lec02.controller;
 
 import com.stocktracker.springbootgraphql.lec02.types.AgeRangeFilter;
 import com.stocktracker.springbootgraphql.sec01.lec02.service.CustomerService;

@@ -31,7 +31,8 @@ public class SearchEngineController {
 
     @QueryMapping
     public Flux<Object> search() {
-        return Mono.fromSupplier(() -> new ArrayList<>(list))
+        return Mono
+                .fromSupplier(() -> new ArrayList<>(list))
                 .doOnNext(Collections::shuffle)
                 .flatMapIterable(Function.identity())
                 .take(ThreadLocalRandom.current().nextInt(0, list.size()));

@@ -6,6 +6,7 @@ import com.stockTracker.service.CustomerService;
 import com.stockTracker.service.OrderService;
 import com.stocktracker.springbootgraphql.models.types.Customer;
 import com.stocktracker.springbootgraphql.models.types.CustomerOrder;
+import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.DataFetchingFieldSelectionSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -34,10 +35,11 @@ public class GraphqlController {
     private OrderService orderService;
 
         @QueryMapping
-        public Flux<CustomerWithOrder> customers(DataFetchingFieldSelectionSet selectionSet) {
+        public Flux<CustomerWithOrder> customers(DataFetchingEnvironment environment) throws Exception {
             logger.info("controller: customers");
-            return customerOrderDataFetcher.customerOrders(selectionSet);
+            return customerOrderDataFetcher.get(environment);
             // return customerService.allCustomers();
+//            return null;
         }
 
 //        @SchemaMapping(typeName = "Customer")
