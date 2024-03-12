@@ -7,11 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="untitled1" />
-        <module name="untitled2" />
         <module name="untitled" />
-        <module name="untitled3" />
-        <module name="untitled4" />
+        <module name="untitled12" />
         <module name="untitled10" />
         <module name="untitled11" />
         <module name="untitled9" />
@@ -19,6 +16,10 @@
         <module name="untitled6" />
         <module name="untitled7" />
         <module name="untitled8" />
+        <module name="untitled1" />
+        <module name="untitled2" />
+        <module name="untitled3" />
+        <module name="untitled4" />
       </profile>
     </annotationProcessing>
   </component>
@@ -29,6 +30,7 @@
       <module name="untitled1" options="-parameters" />
       <module name="untitled10" options="-parameters" />
       <module name="untitled11" options="-parameters" />
+      <module name="untitled12" options="-parameters" />
       <module name="untitled2" options="-parameters" />
       <module name="untitled3" options="-parameters" />
       <module name="untitled4" options="-parameters" />
