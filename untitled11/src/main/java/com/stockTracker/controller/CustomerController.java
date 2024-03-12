@@ -18,8 +18,10 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @QueryMapping("customers")
-    public Flux<Customer> customers(){
+    @QueryMapping
+    public Flux<Customer> customers2(){
+        Flux<Customer> customerFlux = customerService.allCustomers();
+
         return customerService.allCustomers();
     }
 
@@ -28,15 +30,14 @@ public class CustomerController {
         return customerService.customerById(id);
     }
 
-//    @MutationMapping("createCustomer")
-//    public Mono<Customer> createCustomer(@Argument CustomerInput CustomerInput){
-//        return customerService.createCustomer(CustomerInput);
-//    }
-//
-//    @MutationMapping("updateCustomer")
-//    public Mono<Customer> updateCustomer(@Argument Integer id, @Argument("customer") Customer dto){
-//        return this.customerService.updateCustomer(id, dto);
-//    }
+    @MutationMapping
+    public Mono<Customer> createCustomer(@Argument("input") CustomerInput CustomerInput){
+        return customerService.createCustomer(CustomerInput);
+    }
+    @MutationMapping("updateCustomer")
+    public Mono<Customer> updateCustomer(@Argument Integer id, @Argument("input") Customer dto){
+        return this.customerService.updateCustomer(id, dto);
+    }
 
     @MutationMapping
     public Mono<DeleteResponse> deleteCustomer(@Argument Integer id){
