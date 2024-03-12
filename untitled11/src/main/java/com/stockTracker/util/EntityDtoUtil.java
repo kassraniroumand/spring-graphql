@@ -5,6 +5,16 @@ import com.stocktracker.springbootgraphql.models.types.Customer;
 
 public class EntityDtoUtil {
 
+    public static CustomerEntity toEntity(Integer id, Customer customer) {
+        return CustomerEntity
+                .create(
+                        id,
+                        customer.getName(),
+                        customer.getAge(),
+                        customer.getCity()
+                );
+    }
+
     public static CustomerEntity toEntity(Customer customer) {
         return CustomerEntity
                 .create(
@@ -15,14 +25,16 @@ public class EntityDtoUtil {
                 );
     }
 
+
+
     public static Customer toDto(CustomerEntity customerEntity) {
         return Customer
-                .create(
-                        customerEntity.getId().toString(),
-                        customerEntity.getName(),
-                        customerEntity.getAge(),
-                        customerEntity.getCity()
-                );
+                .newBuilder()
+                .id(customerEntity.getId().toString())
+                .name(customerEntity.getName())
+                .age(customerEntity.getAge())
+                .city(customerEntity.getCity())
+                .build();
     }
 
 }
