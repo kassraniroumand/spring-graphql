@@ -1,4 +1,4 @@
-package com.stocktracker.springbootgraphql.sec01.lec03.controller;
+package com.stockTracker.sec01.lec03.controller;
 
 
 import com.stocktracker.springbootgraphql.lec03.types.Customer2;

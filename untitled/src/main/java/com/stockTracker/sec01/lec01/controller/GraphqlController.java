@@ -1,4 +1,4 @@
-package com.stocktracker.springbootgraphql.sec01.lec01.controller;
+package com.stockTracker.sec01.lec01.controller;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

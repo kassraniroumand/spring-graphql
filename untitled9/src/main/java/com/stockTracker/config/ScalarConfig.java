@@ -1,7 +1,6 @@
 package com.stockTracker.config;
 
 import graphql.scalars.ExtendedScalars;
-import graphql.scalars.object.ObjectScalar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;

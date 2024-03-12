@@ -1,6 +1,8 @@
 package com.stockTracker.service;
 
 import com.stockTracker.dto.CustomerWithOrder;
+import graphql.schema.DataFetcher;
+import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.DataFetchingFieldSelectionSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,7 @@ import java.util.Collections;
 import java.util.function.UnaryOperator;
 
 @Service
-public class CustomerOrderDataFetcher {
+public class CustomerOrderDataFetcher implements DataFetcher<Flux<CustomerWithOrder>> {
 
     @Autowired
     private CustomerService customerService;
@@ -19,26 +21,17 @@ public class CustomerOrderDataFetcher {
     @Autowired
     private OrderService orderService;
 
-    public Flux<CustomerWithOrder> customerOrders(DataFetchingFieldSelectionSet selectionSet){
-
-        var includeOrders = selectionSet.contains("orders");
+    @Override
+    public Flux<CustomerWithOrder> get(DataFetchingEnvironment environment) throws Exception {
+        var includeOrders = environment.getSelectionSet().contains("orders");
         System.out.println(includeOrders);
-
-        return this
-                .customerService
-                .allCustomers()
-                .map(c->CustomerWithOrder.create(
-                        Integer.parseInt(c.getId()),
-                        c.getName(),
-                        c.getAge(),
-                        c.getCity(),
-                        Collections.emptyList()
-                ))
+        return this.customerService.allCustomers()
+                .map(c -> CustomerWithOrder.create(Integer.valueOf(c.getId()), c.getName(), c.getAge(), c.getCity(), Collections.emptyList()))
                 .transform(this.updateOrdersTransformer(includeOrders));
     }
 
     private UnaryOperator<Flux<CustomerWithOrder>> updateOrdersTransformer(boolean includeOrders){
-        return includeOrders ? f -> f.flatMap(this::fetchOrders) : f -> f;
+        return includeOrders ? f -> f.flatMapSequential(this::fetchOrders) : f -> f;
     }
 
     private Mono<CustomerWithOrder> fetchOrders(CustomerWithOrder customerWithOrder){

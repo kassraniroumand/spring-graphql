@@ -1,4 +1,4 @@
-package com.stocktracker.springbootgraphql.sec01.lec03.service;
+package com.stockTracker.sec01.lec03.service;
 
 
 import com.stocktracker.springbootgraphql.lec03.types.CustomerOrder;

@@ -5,17 +5,18 @@ import com.stockTracker.service.OrderService;
 import com.stocktracker.springbootgraphql.models.types.Customer;
 import com.stocktracker.springbootgraphql.models.types.CustomerOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.BatchMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Controller
 public class GraphqlController {
@@ -33,11 +34,19 @@ public class GraphqlController {
             return customerService.allCustomers();
         }
 
-        @SchemaMapping(typeName = "Customer")
-        public Flux<CustomerOrder> orders(Customer customer,  @Argument Integer limit) {
-            logger.info("controller: orders for customer: " + customer.getName());
-            return orderService.ordersByCustomerName(customer.getName()).take(limit);
-        }
+//        @BatchMapping(typeName = "Customer")
+//        public Flux<List<CustomerOrder>> orders(List<Customer> list) {
+//            logger.info("controller: orders for customer: " + list);
+//            List<String> lists = list.stream().map(Customer::getName).collect(Collectors.toList());
+//            return orderService.ordersByCustomerNameByLists2(lists);
+//        }
+
+    @BatchMapping(typeName = "Customer")
+    public Mono<Map<Customer, List<CustomerOrder>>> orders(List<Customer> list) {
+        logger.info("controller: orders for customer: " + list);
+//          List<String> lists = list.stream().map(Customer::getName).collect(Collectors.toList());
+        return orderService.fetchOrderByMap(list);
+    }
 
 
 }

@@ -4,6 +4,9 @@ import com.stocktracker.springbootgraphql.models.types.Customer;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 @Service
 public class CustomerService {
 
@@ -15,7 +18,11 @@ public class CustomerService {
     );
 
     public Flux<Customer> allCustomers(){
-        return flux;
+        return flux
+                .delayElements(Duration.ofSeconds(1))
+                .doOnNext(customer -> print("customer: " + customer.getName()));
     }
-
+    private void print(String name){
+        System.out.println(LocalDateTime.now() + " : " + name);
+    }
 }
