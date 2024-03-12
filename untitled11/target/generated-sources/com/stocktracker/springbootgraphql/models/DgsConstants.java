@@ -4,7 +4,7 @@ import java.lang.String;
 
 @javax.annotation.processing.Generated(
     value = "com.netflix.graphql.dgs.codegen.CodeGen",
-    date = "2024-03-12T12:24:24.050070Z"
+    date = "2024-03-12T13:35:52.232217Z"
 )
 @Generated
 public class DgsConstants {
@@ -12,7 +12,7 @@ public class DgsConstants {
 
   @javax.annotation.processing.Generated(
       value = "com.netflix.graphql.dgs.codegen.CodeGen",
-      date = "2024-03-12T12:24:24.050070Z"
+      date = "2024-03-12T13:35:52.232217Z"
   )
   @Generated
   public static class QUERY {
@@ -24,7 +24,7 @@ public class DgsConstants {
 
     @javax.annotation.processing.Generated(
         value = "com.netflix.graphql.dgs.codegen.CodeGen",
-        date = "2024-03-12T12:24:24.050070Z"
+        date = "2024-03-12T13:35:52.232217Z"
     )
     @Generated
     public static class CUSTOMERBYID_INPUT_ARGUMENT {
@@ -34,7 +34,7 @@ public class DgsConstants {
 
   @javax.annotation.processing.Generated(
       value = "com.netflix.graphql.dgs.codegen.CodeGen",
-      date = "2024-03-12T12:24:24.050070Z"
+      date = "2024-03-12T13:35:52.232217Z"
   )
   @Generated
   public static class MUTATION {
@@ -48,7 +48,7 @@ public class DgsConstants {
 
     @javax.annotation.processing.Generated(
         value = "com.netflix.graphql.dgs.codegen.CodeGen",
-        date = "2024-03-12T12:24:24.050070Z"
+        date = "2024-03-12T13:35:52.232217Z"
     )
     @Generated
     public static class CREATECUSTOMER_INPUT_ARGUMENT {
@@ -57,7 +57,7 @@ public class DgsConstants {
 
     @javax.annotation.processing.Generated(
         value = "com.netflix.graphql.dgs.codegen.CodeGen",
-        date = "2024-03-12T12:24:24.050070Z"
+        date = "2024-03-12T13:35:52.232217Z"
     )
     @Generated
     public static class UPDATECUSTOMER_INPUT_ARGUMENT {
@@ -68,7 +68,7 @@ public class DgsConstants {
 
     @javax.annotation.processing.Generated(
         value = "com.netflix.graphql.dgs.codegen.CodeGen",
-        date = "2024-03-12T12:24:24.050070Z"
+        date = "2024-03-12T13:35:52.232217Z"
     )
     @Generated
     public static class DELETECUSTOMER_INPUT_ARGUMENT {
@@ -78,7 +78,7 @@ public class DgsConstants {
 
   @javax.annotation.processing.Generated(
       value = "com.netflix.graphql.dgs.codegen.CodeGen",
-      date = "2024-03-12T12:24:24.050070Z"
+      date = "2024-03-12T13:35:52.232217Z"
   )
   @Generated
   public static class CUSTOMER {
@@ -95,7 +95,7 @@ public class DgsConstants {
 
   @javax.annotation.processing.Generated(
       value = "com.netflix.graphql.dgs.codegen.CodeGen",
-      date = "2024-03-12T12:24:24.050070Z"
+      date = "2024-03-12T13:35:52.232217Z"
   )
   @Generated
   public static class DELETERESPONSE {
@@ -108,7 +108,7 @@ public class DgsConstants {
 
   @javax.annotation.processing.Generated(
       value = "com.netflix.graphql.dgs.codegen.CodeGen",
-      date = "2024-03-12T12:24:24.050070Z"
+      date = "2024-03-12T13:35:52.232217Z"
   )
   @Generated
   public static class CUSTOMERINPUT {

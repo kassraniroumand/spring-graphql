@@ -5,6 +5,7 @@ import com.stockTracker.entity.CustomerEntity;
 import com.stockTracker.repository.CustomerRepository;
 import com.stockTracker.util.EntityDtoUtil;
 import com.stocktracker.springbootgraphql.models.types.Customer;
+import com.stocktracker.springbootgraphql.models.types.CustomerInput;
 import com.stocktracker.springbootgraphql.models.types.DeleteResponse;
 import com.stocktracker.springbootgraphql.models.types.Status;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class CustomerService {
                 .map(EntityDtoUtil::toDto);
     }
 
-    public Mono<Customer> createCustomer(Customer customer){
+    public Mono<Customer> createCustomer(CustomerInput customer){
             return Mono.just(customer)
                     .map(EntityDtoUtil::toEntity)
                     .flatMap(customerRepository::save)
