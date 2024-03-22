@@ -20,8 +20,8 @@ public class CustomerController {
 
     @QueryMapping
     public Flux<Customer> customers2(){
-//        Flux<Customer> customerFlux = customerService.allCustomers();
-//        return customerService.allCustomers();
+    //  Flux<Customer> customerFlux = customerService.allCustomers();
+    //        return customerService.allCustomers();
         throw new RuntimeException("some wierd problem");
     }
 
