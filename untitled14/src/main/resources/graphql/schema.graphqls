@@ -1,0 +1,35 @@
+type CustomerDto {
+    id: ID!
+    name: String!
+    age: Int
+    city: String
+}
+
+type Query {
+    customers: [CustomerDto]
+    customerById(id: ID!): CustomerDto
+}
+
+type Mutation {
+    createCustomer(customer: CustomerInput): CustomerDto
+    updateCustomer(id: ID!, customer: CustomerInput): CustomerDto
+    deleteCustomer(id: ID!): DeleteResponse!
+}
+
+input CustomerInput {
+    name: String
+    age: Int
+    city: String
+}
+
+type DeleteResponse {
+    id: ID
+    status: Status
+}
+
+enum Status {
+    SUCCESS
+    FAILURE
+}
+
+
