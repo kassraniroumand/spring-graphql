@@ -6,7 +6,7 @@ on:
 
 
 env:
-  app_name: "demo24"
+  app_name: "graphql13"
 
 jobs:
   build:
