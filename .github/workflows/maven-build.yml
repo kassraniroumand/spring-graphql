@@ -3,16 +3,18 @@ name: Java CI with Maven
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
 
 env:
-  app_name: "graphql13"
+  app_name: "demo24"
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [ untitled13, untitled12 ] # List all your modules here
 
     steps:
       - name: Checkout code
@@ -23,15 +25,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Build and test with Maven
-        run: mvn --batch-mode package
 
-      - name: build & push docker image
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
-          image: kassraniroumand/graphql13
-          tags: ${{ github.sha }}
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build with Maven (Module ${{ matrix.module }})
+        run: mvn -B clean verify --file ./${{ matrix.module }}/pom.xml

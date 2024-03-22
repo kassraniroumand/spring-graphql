@@ -16,19 +16,20 @@
     <name>spring-boot-graphql</name>
     <description>spring-boot-graphql</description>
     <modules>
-        <module>untitled</module>
-        <module>untitled1</module>
-        <module>untitled2</module>
-        <module>untitled3</module>
-        <module>untitled4</module>
-        <module>untitled5</module>
-        <module>untitled6</module>
-        <module>untitled7</module>
-        <module>untitled8</module>
-        <module>untitled9</module>
-        <module>untitled10</module>
-        <module>untitled11</module>
+<!--        <module>untitled</module>-->
+<!--        <module>untitled1</module>-->
+<!--        <module>untitled2</module>-->
+<!--        <module>untitled3</module>-->
+<!--        <module>untitled4</module>-->
+<!--        <module>untitled5</module>-->
+<!--        <module>untitled6</module>-->
+<!--        <module>untitled7</module>-->
+<!--        <module>untitled8</module>-->
+<!--        <module>untitled9</module>-->
+<!--        <module>untitled10</module>-->
+<!--        <module>untitled11</module>-->
         <module>untitled12</module>
+        <module>untitled13</module>
     </modules>
     <properties>
         <java.version>17</java.version>
@@ -76,59 +77,59 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.github.deweyjose</groupId>
-                <artifactId>graphqlcodegen-maven-plugin</artifactId>
-                <version>1.50</version>
-                <executions>
-                    <execution>
-                        <id>dgs-codegen</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <schemaPaths>
-                                <param>src/main/resources/graphql/schema.graphqls</param>
-                            </schemaPaths>
-                            <packageName>com.stocktracker.springbootgraphql.models</packageName>
-                            <addGeneratedAnnotation>true</addGeneratedAnnotation>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>add-dgs-source</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.build.directory}/generated-sources</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>io.github.deweyjose</groupId>-->
+<!--                <artifactId>graphqlcodegen-maven-plugin</artifactId>-->
+<!--                <version>1.50</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>dgs-codegen</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <schemaPaths>-->
+<!--                                <param>src/main/resources/graphql/schema.graphqls</param>-->
+<!--                            </schemaPaths>-->
+<!--                            <packageName>com.stocktracker.springbootgraphql.models</packageName>-->
+<!--                            <addGeneratedAnnotation>true</addGeneratedAnnotation>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>build-helper-maven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>add-dgs-source</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>add-source</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <sources>-->
+<!--                                <source>${project.build.directory}/generated-sources</source>-->
+<!--                            </sources>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <excludes>-->
+<!--                        <exclude>-->
+<!--                            <groupId>org.projectlombok</groupId>-->
+<!--                            <artifactId>lombok</artifactId>-->
+<!--                        </exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
