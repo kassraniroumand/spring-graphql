@@ -18,6 +18,9 @@ jobs:
         module: [ untitled13, untitled12 ] # List all your modules here
 
     steps:
+      - name: version check
+        run: |
+          echo "JAVA_HOME: ${{ github.run_number }}"
       - name: Checkout code
         uses: actions/checkout@v3
       - name: set up jdk 17
