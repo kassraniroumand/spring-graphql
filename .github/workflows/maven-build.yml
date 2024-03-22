@@ -39,4 +39,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker image for ${{ matrix.module }}
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ matrix.module }}:${{ github.run_number }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ matrix.module }}:${{ github.sha }}
