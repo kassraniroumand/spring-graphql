@@ -1,0 +1,30 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ main ]
+
+
+env:
+  app_name: "demo24"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [ untitled13, untitled12 ] # List all your modules here
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: set up jdk 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven (Module ${{ matrix.module }})
+        run: mvn -B clean verify --file ./${{ matrix.module }}/pom.xml
