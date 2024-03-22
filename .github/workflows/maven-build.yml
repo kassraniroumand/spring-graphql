@@ -7,7 +7,7 @@ on:
 
 
 env:
-  app_name: "demo24"
+  app_name: "graphql13"
 
 jobs:
   build:
@@ -33,5 +33,5 @@ jobs:
           tags: ${{ github.sha }}
           registry: docker.io
           dockerfile: Dockerfile
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USERNAME }} 
           password: ${{ secrets.DOCKER_PASSWORD }}
